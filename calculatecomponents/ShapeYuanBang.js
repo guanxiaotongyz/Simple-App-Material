@@ -29,15 +29,15 @@ const ShapeYuanBang = ({ infomaterial }) => {
       alert("请检查材料单价");
     } else {
       alert("计算成功");
-      setWeight(0.001* Number(volume) * Number(infomaterial.density));
-      setPrice(0.001 * Number(volume) * Number(infomaterial.density) * Number(infomaterial.unitPrice));
+      setWeight((0.001* Number(volume) * Number(infomaterial.density)).toFixed(5));
+      setPrice((0.001 * Number(volume) * Number(infomaterial.density) * Number(infomaterial.unitPrice)).toFixed(4));
     }
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.input}>
-        <Text style={styles.text}>圆管直径 cm ： </Text>
+        <Text style={styles.text}>圆棒直径 cm ： </Text>
         <TextInput
           placeholder="输入直径"
           onChangeText={(text) => setDiamater(text)}
@@ -45,13 +45,14 @@ const ShapeYuanBang = ({ infomaterial }) => {
       </View>
 
       <View style={styles.input}>
-        <Text style={styles.text}>圆管高度 cm ： </Text>
+        {/* all height is 长度 */}
+        <Text style={styles.text}>圆棒长度 cm ： </Text>
         <TextInput
-          placeholder="输入高度"
+          placeholder="输入长度"
           onChangeText={(text) => setHeight(text)}
         />
       </View>
-      <Button title="计算" onPress={sendAllInfo} />
+      <Button style={{ marginTop: 10 }} title="计算" onPress={sendAllInfo} />
 
       <Text style={styles.keytext}>重量 kg: {weight}</Text>
       <Text style={styles.keytext}>价格 ¥: {price} </Text>

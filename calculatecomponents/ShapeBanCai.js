@@ -24,18 +24,28 @@ const ShapeBanCai = ({ infomaterial }) => {
       alert("请填写正确尺寸");
     } else if (infomaterial.type === "") {
       alert("请正确选择材料类型");
-    } else if (infomaterial.density === "" || isNaN(Number(infomaterial.density))) {
+    } else if (
+      infomaterial.density === "" ||
+      isNaN(Number(infomaterial.density))
+    ) {
       alert("请检查材料密度");
-    } else if (infomaterial.unitPrice === "" || isNaN(Number(infomaterial.unitPrice))) {
+    } else if (
+      infomaterial.unitPrice === "" ||
+      isNaN(Number(infomaterial.unitPrice))
+    ) {
       alert("请检查材料单价");
     } else {
       alert("计算成功");
-      setWeight(0.001 * Number(volume) * Number(infomaterial.density));
+      setWeight(
+        (0.001 * Number(volume) * Number(infomaterial.density)).toFixed(5)
+      );
       setPrice(
-        0.001 *
+        (
+          0.001 *
           Number(volume) *
           infomaterial.density *
           Number(infomaterial.unitPrice)
+        ).toFixed(4)
       );
     }
   }
@@ -65,10 +75,11 @@ const ShapeBanCai = ({ infomaterial }) => {
           onChangeText={(text) => setHeight(text)}
         />
       </View>
-      <Button title="计算" onPress={sendAllInfo} />
 
+      <Button title="计算" onPress={sendAllInfo} />
       <Text style={styles.keytext}>重量 kg: {weight}</Text>
       <Text style={styles.keytext}>价格 ¥: {price} </Text>
+      
     </View>
   );
 };

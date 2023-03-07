@@ -10,11 +10,7 @@ const MaterialDensity = ({infosavedensity, typename}) => {
     
     useEffect(() => {
         console.log("===MaterialDensity TYPE NAME =====" , typename.type)
-        if (typename.type === "钢材") {
-            setDensity(Density.gangcai)
-            console.log("test1", Density.gangcai)
-            infosavedensity(Density.gangcai)
-        } else if (typename.type === "铝材") {
+        if (typename.type === "铝材") {
             setDensity(Density.lvcai)
             console.log("test2", Density.lvcai)
             infosavedensity(Density.lvcai)
@@ -26,10 +22,6 @@ const MaterialDensity = ({infosavedensity, typename}) => {
             setDensity(Density.buxiugang)
             console.log("test4", Density.buxiugang)
             infosavedensity(Density.buxiugang)
-        } else if (typename.type === "碳材") {
-            setDensity(Density.tancai)
-            console.log("test5", Density.tancai)
-            infosavedensity(Density.tancai)
         } else if (typename.type === "碳钢") {
             setDensity(Density.taigang)
             console.log("test6", Density.taigang)
@@ -56,6 +48,7 @@ const MaterialDensity = ({infosavedensity, typename}) => {
           }}
         /> */}
         <TextInput
+          style={styles.textinput}
           value={String(density)}
           onChangeText={(text) => {
                           setDensity(text)
@@ -75,7 +68,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       padding: 10,
       marginTop: 10,
-      marginLeft: 50,
+      marginLeft: 43,
       marginRight: 50,
       borderRadius: 10,
       height: 50,
@@ -90,6 +83,11 @@ const styles = StyleSheet.create({
       height: 30,
       width: 100,
     },
+    textinput: {
+        fontSize: 18,
+        marginLeft: 10,
+        marginTop: 5,
+    }
   });
 
 export default MaterialDensity

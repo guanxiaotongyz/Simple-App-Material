@@ -12,7 +12,7 @@ const MaterialUnitPrice = ({infosaveUnitPrice}) => {
     <View style={styles.inputcontainer}>
       <Text>材料单价 kg / 元：</Text>
       <View style={styles.input}>
-        <TextInput
+        <TextInput style={styles.textinput}
           placeholder="输入单价"
           onChangeText={(text) => {
             setText(text);
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       padding: 10,
       marginTop: 10,
-      marginLeft: 50,
+      marginLeft: 43,
       marginRight: 50,
       borderRadius: 10,
       height: 50,
@@ -45,6 +45,11 @@ const styles = StyleSheet.create({
       height: 30,
       width: 100,
     },
+    textinput: {
+      fontSize: 18,
+      marginLeft: 10,
+      marginTop: 5,
+  }
   });
 
 export default MaterialUnitPrice

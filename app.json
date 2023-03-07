@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "matrialApplication",
+    "name": "材料报价计算",
     "slug": "matrialApplication",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,9 +15,12 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.youname.youname",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.youname.youname",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +28,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f5d8985f-7325-4349-9159-a53d7d40b2a1"
+      }
     }
   }
 }
