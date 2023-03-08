@@ -19,13 +19,13 @@ const ShapeYuanBang = ({ infomaterial }) => {
   }
 
   function sendAllInfo() {
-    if (volume === null || volume === 0 || volume === "") {
+    if (volume === null || volume === 0 || volume === "" || isNaN(Number(volume)) || volume < 0) {
       alert("请填写正确尺寸");
     } else if (infomaterial.type === "") {
       alert("请正确选择材料类型");
-    } else if (infomaterial.density === "" || isNaN(Number(infomaterial.density))) {
+    } else if (infomaterial.density === "" || isNaN(Number(infomaterial.density)) || Number(infomaterial.density) <= 0) {
       alert("请检查材料密度");
-    } else if (infomaterial.unitPrice === "" || isNaN(Number(infomaterial.unitPrice)) || Number(infomaterial.unitPrice) === 0) {
+    } else if (infomaterial.unitPrice === "" || isNaN(Number(infomaterial.unitPrice)) || Number(infomaterial.unitPrice) === 0 || Number(infomaterial.unitPrice) < 0) {
       alert("请检查材料单价");
     } else {
       alert("计算成功");
@@ -52,6 +52,10 @@ const ShapeYuanBang = ({ infomaterial }) => {
           onChangeText={(text) => setHeight(text)}
         />
       </View>
+
+      <View style={{marginTop:10}}>
+      </View>
+
       <Button style={{ marginTop: 10 }} title="计算" onPress={sendAllInfo} />
 
       <Text style={styles.keytext}>重量 kg: {weight}</Text>
